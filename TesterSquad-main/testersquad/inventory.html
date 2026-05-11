@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head
+    <title>Inventory Management System</title>
+</head>
+<body>
+    <h1>Inventory Management System</h1>
+
+    <label>Product ID:</label>4343
+    <input type="text" id="productId"><br><br>
+
+    <label>Product Name:</label>
+    <input type="text" id="productName"><br><br>
+43
+    <label>Price:</label>
+    <input type="text" id="price"><br><br>
+
+    <label>Quantity:</label>
+    <input type="text" id="quantity"><br><br>
+
+    <button id="addProductBtn" onclick="addProduct()">Add Product</button>
+
+    <h2>Product List</h2>
+    <table border="1" id="productTable">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+    </table>
+
+    <p id="message"></p>
+
+    <script>
+        function addProduct() {
+            let id = document.getElementById("productId").value;
+            let name = document.getElementById("productName").value;
+            let price = document.getElementById("price").value;
+            let quantity = document.getElementById("quantity").value;
+
+            if (id === "" || name === "" || price === "" || quantity === "") {
+                document.getElementById("message").innerText = "Please fill all fields";
+                return;
+            }
+
+            let table = document.getElementById("productTable");
+            let row = table.insertRow();
+
+            row.insertCell(0).innerText = id;
+            row.insertCell(1).innerText = name;
+            row.insertCell(2).innerText = price;
+            row.insertCell(3).innerText = quantity;
+
+            document.getElementById("message").innerText = "Product added successfully";
+        }
+    </script>
+</body>
+</html>
